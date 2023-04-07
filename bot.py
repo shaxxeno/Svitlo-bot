@@ -41,7 +41,6 @@ async def main():
     logger.info("Starting bot")
 
     dp.include_router(handlers.router)
-    # dp.message.middleware(RegisterCheck)
 
     register_global_middlewares(dp, config)
 

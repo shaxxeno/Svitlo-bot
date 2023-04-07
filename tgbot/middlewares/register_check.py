@@ -5,12 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select
 from tgbot.models.db.users import User
 
+
 class RegisterCheck(BaseMiddleware):
     async def __call__(
-        self,
-        handler: Callable[[Message, Dict[str, Any]], Awaitable[Any]],
-        event: Message,
-        data: Dict[str, Any]
+            self,
+            handler: Callable[[Message, Dict[str, Any]], Awaitable[Any]],
+            event: Message,
+            data: Dict[str, Any]
     ) -> Any:
         session_maker: sessionmaker = data['session_maker']
         async with session_maker() as session:
@@ -22,10 +23,9 @@ class RegisterCheck(BaseMiddleware):
                     pass
                 else:
                     user = User(
-                        user_id = event.from_user.id,
-                        user_name = event.from_user.username
+                        user_id=event.from_user.id,
+                        user_name=event.from_user.username
                     )
                     await session.merge(user)
-                    await event.answer(f'Zaregan')
 
         return await handler(event, data)
