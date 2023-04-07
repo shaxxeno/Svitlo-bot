@@ -1,4 +1,5 @@
 from aiogram import Router
+from tgbot.middlewares.register_check import RegisterCheck
 
 from . import basic
 from . import save_address
@@ -11,3 +12,5 @@ router.include_routers(
     save_address.router,
     get_info.router,
 )
+
+# router.message.register(RegisterCheck())
