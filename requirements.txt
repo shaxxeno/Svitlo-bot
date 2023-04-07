@@ -6,3 +6,4 @@ bs4~=0.0.1
 beautifulsoup4~=4.12.0
 selenium~=4.8.2
 SQLAlchemy~=2.0.9
+asyncpg~=0.27.0
